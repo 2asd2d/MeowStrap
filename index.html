@@ -10,12 +10,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #1a0813;
-            color: #ffe6f2;
+            background-color: #fce4ec;
+            color: #5c3a4d;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -23,8 +23,8 @@
             position: relative;
         }
 
-        /* Floating Cat Emoji Background Effect */
-        .cat-bg {
+        /* FLOATING SPARKLE BACKGROUND EFFECT */
+        .stars-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,18 +32,19 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.15;
-            font-size: 1.5rem;
         }
 
-        .cat-emoji {
+        .star {
             position: absolute;
-            animation: float 10s infinite ease-in-out;
+            background: #f48fb1;
+            border-radius: 50%;
+            opacity: 0.35;
+            animation: twinkle 4s infinite ease-in-out;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+        @keyframes twinkle {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.6); opacity: 0.6; }
         }
 
         /* NAVBAR */
@@ -51,9 +52,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 8%;
-            background: rgba(26, 8, 19, 0.8);
-            backdrop-filter: blur(10px);
+            padding: 1rem 8%;
+            background: rgba(252, 228, 236, 0.85);
+            backdrop-filter: blur(8px);
             position: relative;
             z-index: 10;
         }
@@ -61,30 +62,30 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.4rem;
+            gap: 12px;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #ff66b2;
+            color: #880e4f;
             text-decoration: none;
         }
 
         .logo-icon {
-            background: #ff66b2;
-            color: #1a0813;
-            padding: 6px 10px;
+            width: 38px;
+            height: 38px;
             border-radius: 8px;
-            font-size: 1.1rem;
+            object-fit: cover;
+            border: 1px solid #f48fb1;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.8rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: #ffccf2;
+            color: #ad1457;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
@@ -92,44 +93,45 @@
         }
 
         .nav-links a:hover {
-            color: #ff66b2;
+            color: #d81b60;
         }
 
-        /* MAIN HERO SECTION */
+        /* HERO SECTION */
         main {
-            max-width: 1100px;
+            max-width: 1050px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 3.5rem 1.5rem;
             text-align: center;
             position: relative;
             z-index: 5;
             flex-grow: 1;
+            width: 100%;
         }
 
         .hero-logo {
-            font-size: 4rem;
-            background: #df6ba5;
-            width: 90px;
-            height: 90px;
-            line-height: 90px;
-            border-radius: 20px;
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
             margin: 0 auto 1.5rem auto;
-            box-shadow: 0 0 25px rgba(223, 107, 165, 0.4);
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(233, 30, 99, 0.15);
+            border: 2px solid #f8bbd0;
         }
 
         .hero-title {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 0.8rem;
-            text-shadow: 0 0 15px rgba(255, 102, 178, 0.3);
+            color: #880e4f;
+            margin-bottom: 0.7rem;
+            letter-spacing: -0.5px;
         }
 
         .hero-subtitle {
             font-size: 1.1rem;
-            color: #ffb3da;
-            max-width: 650px;
-            margin: 0 auto 2rem auto;
+            color: #880e4f;
+            opacity: 0.8;
+            max-width: 620px;
+            margin: 0 auto 2.2rem auto;
             line-height: 1.5;
         }
 
@@ -137,12 +139,13 @@
         .cta-buttons {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 0.8rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.4rem;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.95rem;
@@ -151,120 +154,134 @@
             align-items: center;
             gap: 8px;
             transition: all 0.2s ease;
-            cursor: pointer;
         }
 
-        .btn-primary {
-            background-color: #ff4da6;
-            color: #ffffff;
-            border: none;
-            box-shadow: 0 0 15px rgba(255, 77, 166, 0.4);
-        }
-
-        .btn-primary:hover {
-            background-color: #ff3399;
-            transform: translateY(-2px);
+        /* DISABLED DOWNLOAD BUTTON */
+        .btn-disabled {
+            background-color: #f8bbd0;
+            color: #ad1457;
+            cursor: not-allowed;
+            opacity: 0.85;
+            border: 1px solid #f48fb1;
         }
 
         .btn-secondary {
-            background-color: #2e0d22;
-            color: #ffb3da;
-            border: 1px solid #4a1538;
+            background-color: #f8bbd0;
+            color: #880e4f;
+            border: 1px solid #f48fb1;
         }
 
         .btn-secondary:hover {
-            background-color: #3d112d;
-            border-color: #ff66b2;
+            background-color: #f48fb1;
+            color: #ffffff;
             transform: translateY(-2px);
         }
 
-        /* BADGES */
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-bottom: 3.5rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: #280b1e;
-            border: 1px solid #4a1538;
-            border-radius: 6px;
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            color: #ff99dd;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .badge strong {
-            color: #ff66b2;
-        }
-
-        /* GRID FEATURE CARDS */
+        /* GRID CARDS EXACT FROSTSTRAP LAYOUT */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.2rem;
             text-align: left;
         }
 
         .card {
-            background: #250a1b;
-            border: 1px solid #3d112d;
+            background: #f8bbd0;
+            border: 1px solid #f48fb1;
             border-radius: 12px;
             padding: 1.5rem;
             transition: all 0.2s ease;
         }
 
         .card:hover {
-            border-color: #ff66b2;
+            border-color: #ec407a;
             transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(255, 102, 178, 0.15);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.12);
         }
 
         .card-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
         }
 
         .card-icon {
-            color: #ff66b2;
+            color: #ad1457;
             font-size: 1.1rem;
         }
 
         .card-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #880e4f;
         }
 
         .card-desc {
-            font-size: 0.9rem;
-            color: #d991ba;
+            font-size: 0.88rem;
+            color: #6a1b40;
             line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 900px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.98rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .btn {
+                justify-content: center;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating Cat Elements Background -->
-    <div class="cat-bg">
-        <span class="cat-emoji" style="top: 10%; left: 15%; animation-delay: 0s;">🐾</span>
-        <span class="cat-emoji" style="top: 25%; left: 80%; animation-delay: 2s;">🐱</span>
-        <span class="cat-emoji" style="top: 60%; left: 10%; animation-delay: 4s;">🌸</span>
-        <span class="cat-emoji" style="top: 75%; left: 85%; animation-delay: 1s;">✨</span>
-        <span class="cat-emoji" style="top: 40%; left: 50%; animation-delay: 3s;">🐾</span>
+    <!-- Background Sparkle Effect -->
+    <div class="stars-bg">
+        <div class="star" style="width: 3px; height: 3px; top: 15%; left: 10%;"></div>
+        <div class="star" style="width: 4px; height: 4px; top: 30%; left: 85%;"></div>
+        <div class="star" style="width: 2px; height: 2px; top: 65%; left: 15%;"></div>
+        <div class="star" style="width: 5px; height: 5px; top: 80%; left: 75%;"></div>
+        <div class="star" style="width: 3px; height: 3px; top: 45%; left: 50%;"></div>
     </div>
 
     <!-- NAVBAR -->
     <nav>
         <a href="#" class="logo-container">
-            <div class="logo-icon"><i class="fa-solid fa-cat"></i></div>
+            <img src="MeowCat.png" alt="MeowStrap" class="logo-icon">
             MeowStrap
         </a>
         <ul class="nav-links">
@@ -276,40 +293,33 @@
         </ul>
     </nav>
 
-    <!-- MAIN HERO CONTENT -->
+    <!-- MAIN CONTENT -->
     <main>
-        <div class="hero-logo">🐱</div>
+        <img src="MeowCat.png" alt="MeowStrap Logo" class="hero-logo">
         <h1 class="hero-title">MeowStrap</h1>
         <p class="hero-subtitle">
-            A cute, pink-themed launcher mod for Roblox — customizable, lightweight, and filled with extra purr-sonality.
+            A fork of Bloxstrap / Fishstrap — lightweight, customizable, open source, and full of cats.
         </p>
 
         <!-- CTA BUTTONS -->
         <div class="cta-buttons">
-            <a href="#" class="btn btn-primary">
-                <i class="fa-solid fa-download"></i> Download Latest (v1.0)
-            </a>
+            <span class="btn btn-disabled">
+                <i class="fa-solid fa-ban"></i> Download Currently Unavailable
+            </span>
             <a href="#" class="btn btn-secondary">
                 <i class="fa-brands fa-github"></i> Star on GitHub
             </a>
         </div>
 
-        <!-- STAT BADGES -->
-        <div class="badges">
-            <div class="badge"><i class="fa-solid fa-book"></i> License <strong>AGPL-3.0</strong></div>
-            <div class="badge"><i class="fa-solid fa-cloud-arrow-down"></i> Latest Downloads <strong>12.5K</strong></div>
-            <div class="badge"><i class="fa-solid fa-download"></i> Total Downloads <strong>45K</strong></div>
-        </div>
-
-        <!-- CARDS GRID -->
+        <!-- CARDS GRID (3x2 Layout like Froststrap) -->
         <div class="grid-container">
 
             <div class="card">
                 <div class="card-header">
-                    <i class="fa-solid fa-wand-magic-sparkles card-icon"></i>
-                    <div class="card-title">Pink Bootstrapper</div>
+                    <i class="fa-solid fa-rocket card-icon"></i>
+                    <div class="card-title">Bootstrapper</div>
                 </div>
-                <div class="card-desc">Lightweight launcher for Roblox featuring custom dark-pink UI and cat themes.</div>
+                <div class="card-desc">Lightweight launcher for Roblox with enhanced customization.</div>
             </div>
 
             <div class="card">
@@ -317,15 +327,15 @@
                     <i class="fa-solid fa-wrench card-icon"></i>
                     <div class="card-title">Mod Generator</div>
                 </div>
-                <div class="card-desc">Easily generate textures, sounds, and custom mods to use in Roblox UI.</div>
+                <div class="card-desc">Easily generate mods to use for Roblox UI.</div>
             </div>
 
             <div class="card">
                 <div class="card-header">
-                    <i class="fa-solid fa-palette card-icon"></i>
+                    <i class="fa-solid fa-paint-roller card-icon"></i>
                     <div class="card-title">UI & Appearance</div>
                 </div>
-                <div class="card-desc">Customize launcher and in-game UI with custom animated pink gradients.</div>
+                <div class="card-desc">Customize UI with Custom Animated/Gradient backgrounds.</div>
             </div>
 
             <div class="card">
@@ -333,7 +343,7 @@
                     <i class="fa-solid fa-globe card-icon"></i>
                     <div class="card-title">Region Selector</div>
                 </div>
-                <div class="card-desc">Choose your preferred server region for optimal ping during gaming sessions.</div>
+                <div class="card-desc">Choose your preferred server region for optimal ping.</div>
             </div>
 
             <div class="card">
@@ -341,7 +351,7 @@
                     <i class="fa-solid fa-gamepad card-icon"></i>
                     <div class="card-title">Game Shortcuts</div>
                 </div>
-                <div class="card-desc">Create quick desktop shortcuts to join your favorite experiences directly.</div>
+                <div class="card-desc">Create shortcuts to use to join specific games faster.</div>
             </div>
 
             <div class="card">
@@ -349,7 +359,7 @@
                     <i class="fa-brands fa-discord card-icon"></i>
                     <div class="card-title">MeowStrap RPC</div>
                 </div>
-                <div class="card-desc">Rich Presence for Discord that shows current Roblox activity with cute statuses.</div>
+                <div class="card-desc">MeowStrap Rich Presence that also tracks the page you're on.</div>
             </div>
 
         </div>
