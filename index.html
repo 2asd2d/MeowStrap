@@ -144,23 +144,28 @@
         }
 
         .btn {
-            padding: 0.75rem 1.4rem;
-            border-radius: 8px;
+            padding: 0.85rem 1.8rem;
+            border-radius: 10px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(233, 30, 99, 0.2);
         }
 
-        .btn-disabled {
-            background-color: #f8bbd0;
-            color: #ad1457;
-            cursor: not-allowed;
-            opacity: 0.85;
-            border: 1px solid #f48fb1;
+        .btn-primary {
+            background-color: #ad1457;
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #880e4f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
         }
 
         /* GRID CARDS */
@@ -288,9 +293,9 @@
 
         <!-- CTA BUTTONS -->
         <div class="cta-buttons">
-            <span class="btn btn-disabled">
-                <i class="fa-solid fa-ban"></i> Download Currently Unavailable
-            </span>
+            <a href="https://gofile.io/d/Zdalpe" target="_blank" class="btn btn-primary">
+                <i class="fa-solid fa-download"></i> Download MeowStrap
+            </a>
         </div>
 
         <!-- CARDS GRID -->
